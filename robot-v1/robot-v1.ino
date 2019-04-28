@@ -45,10 +45,10 @@ void loop() {
   analogWrite(spd1, 120);
   myservo.write(85);
   digitalWrite(trigPin, LOW);
-  delayMicroseconds(20); 
+  delayMicroseconds(2); 
 
   digitalWrite(trigPin, HIGH);
-  delayMicroseconds(100);
+  delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
   // Reads the echoPin, returns the sound wave travel time in microseconds
   duration = pulseIn(echoPin, HIGH);
@@ -58,11 +58,11 @@ void loop() {
   if (distance > 40 ){
     digitalWrite(in3, HIGH);
     digitalWrite(in1, HIGH);
-    delay(100);
-    digitalWrite(in1, LOW);
-    digitalWrite(in3, LOW);
+
   }
   else {
+    digitalWrite(in1, LOW);
+    digitalWrite(in3, LOW);
     delay(1000);
     digitalWrite(in4, HIGH);
     digitalWrite(in2, HIGH);
@@ -98,7 +98,7 @@ void loop() {
     left = duration*0.034/2;
     delay(1000);
     
-    myservo.write(90);
+    myservo.write(85);
 
     delay(500);
     if (left >= right) {
